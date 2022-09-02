@@ -61,6 +61,8 @@ public class NewMonsterEntry {
         
         monsterService.addMonster(monsterName, monsterType, monsterSize,
                 monsterBio, monsterAC);
+
+        System.out.println("Monster successfully added.");
     }
 
 

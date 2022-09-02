@@ -1,5 +1,12 @@
 plugins {
     id 'java'
+
+    id("com.github.johnrengelman.shadow") version "6.0.0"
+}
+// Shadow task depends on Jar task, so these configs are reflected for Shadow as well
+tasks.jar {
+    manifest.attributes["Main-Class"] = "MonsterManual"
+
 }
 
 group 'org.example'
@@ -23,11 +30,18 @@ test {
 }
 
 
+apply plugin: 'java'
 
 jar {
     manifest {
-        attributes(
-                'Main-Class': 'MonsterManual'
-        )
+        attributes "Main-Class": "MonsterManual"
     }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+
+
+    }
+    duplicatesStrategy = 'include'
+
 }

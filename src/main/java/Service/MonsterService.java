@@ -29,7 +29,7 @@ public class MonsterService {
             System.out.println("This monster does not exist.");
         }else{
             mr.removeMonsterByName(name);
-            System.out.println("Monster deleted,");
+            System.out.println("Monster deleted.");
         }
     }
 

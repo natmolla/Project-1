@@ -60,7 +60,7 @@ public class Monster {
 
     @Override
     public String toString() {
-        return "Monster's Profile:\n" +
+        return "Monster Profile\n" +
             "Name: " + name +
             ", Type: " + type + "\n" +
             "Size: " + size  + "\n" +

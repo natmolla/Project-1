@@ -20,22 +20,23 @@ public class MonsterManual {
         PlayerService playerService = new PlayerService();
         NewMonsterEntry newMonsterEntry = new NewMonsterEntry(monsterService);
         NewPlayerEntry newPlayerEntry = new NewPlayerEntry(playerService);
+        ClearSpace clearSpace = new ClearSpace();
 
         boolean manualOpen = true;
         boolean playerOptions = false;
         boolean monsterOptions = false;
         boolean playerProfile = false;
         boolean monsterProfile = false;
+        boolean leaderboardMenu = false;
 
 
             while (manualOpen) {
                 System.out.println("""
-                        
-                        
                                       SELECT
                                       
                         >player options
                         >monster options
+                        >view leaderboard
                         >close
                         
                         
@@ -47,19 +48,69 @@ public class MonsterManual {
                 if (userInput.equals("close")) {
                     manualOpen = false;
                 } else if (userInput.equals("monster options")) {
+                    ClearSpace.clearSpace();
                     manualOpen = false;
                     monsterOptions = true;
                 }
-                if (userInput.equals("player options")) {
+                else if (userInput.equals("player options")) {
+                    ClearSpace.clearSpace();
                     manualOpen = false;
                     playerOptions = true;
                 }
+                else if (userInput.equals("view leaderboard")){
+                    manualOpen = false;
+                    leaderboardMenu = true;
+                }
+
+                while (leaderboardMenu) {
+                    System.out.println("""  
+                                        SELECT
+                                        
+                            >leaderboard
+                            >record kill
+                            >back
+                                                        
+                                                        
+                                                        
+                            """);
+                    userInput = in.nextLine();
+                    if (userInput.equals("back")) {
+                        leaderboardMenu = false;
+                        manualOpen = true;
+                    }
+                    else if(userInput.equals("leaderboard")){
+                        ClearSpace.clearSpace();
+                        System.out.println("""
+                                
+                                
+                                ]--||LEADERBOARD||--[
+                                
+                                
+                                """);
+                        System.out.println(playerService.getLeaderboard());
+                        System.out.println("""
+                                
+                                
+                                ]--||LEADERBOARD||--[
+                                
+                                
+                                """);
+                    }
+                    else if(userInput.equals("record kill")){
+                        String player = "";
+                        String monster = "";
+                        System.out.println("Player's name:");
+                        player = in.nextLine();
+                        System.out.println("Enter name of monster killed:");
+                        monster = in.nextLine();
+                        playerService.addKill(player, monster);
+                    }
 
 
+
+                }
                 while (playerOptions) {
-                    System.out.println("""
-                            
-                            
+                    System.out.println("""  
                                         SELECT
                                         
                             >new player
@@ -81,10 +132,12 @@ public class MonsterManual {
                     } else if (userInput.equals("new player")) {
                         newPlayerEntry.addEntry();
                     } else if (userInput.equals("view players")) {
+                        ClearSpace.clearSpace();
                         System.out.println(playerService.getAllPlayerNames());
                     } else if (userInput.equals("select player")) {
                         System.out.println("user:");
                         userInput = in.nextLine();
+                        ClearSpace.clearSpace();
                         System.out.println(playerService.getPlayerByName(userInput));
                         manualOpen = false;
                         playerOptions = false;
@@ -92,8 +145,6 @@ public class MonsterManual {
 
                         while (playerProfile) {
                             System.out.println("""
-                                    
-                                    
                                             SELECT
                                     
                                     >update profile
@@ -114,19 +165,21 @@ public class MonsterManual {
                             } else if (userInput.equals("update profile")) {
                                 System.out.println("Confirm user's name:");
                                 playerName = in.nextLine();
+                                System.out.println(playerService.getPlayerByName(playerName));
                                 System.out.println("Field to edit, select one: class, armor class, password");
                                 selectedField = in.nextLine();
                                 System.out.println("Enter new " + selectedField + ":");
                                 update = in.nextLine();
                                 playerService.updatePlayerByName(playerName, selectedField, update);
+                                ClearSpace.clearSpace();
                                 System.out.println(playerService.getPlayerByName(playerName));
 
 
                             } else if (userInput.equals("delete player")) {
                                 System.out.println("Player to delete:");
                                 userInput = in.nextLine();
+                                ClearSpace.clearSpace();
                                 playerService.deletePlayerByName(userInput);
-                                System.out.println("Player deleted");
                             }
 
                         }
@@ -137,8 +190,6 @@ public class MonsterManual {
 
                 while (monsterOptions) {
                     System.out.println("""
-                            
-                            
                                    SELECT
                                    
                             >new monster
@@ -160,10 +211,12 @@ public class MonsterManual {
                     } else if (userInput.equals("new monster")) {
                         newMonsterEntry.addEntry();
                     } else if (userInput.equals("view monsters")) {
+                        ClearSpace.clearSpace();
                         System.out.println(monsterService.getAllMonsterNames());
                     } else if (userInput.equals("select monster")) {
                         System.out.println("monster:");
                         userInput = in.nextLine();
+                        ClearSpace.clearSpace();
                         System.out.println(monsterService.getMonsterByName(userInput));
                         monsterProfile = true;
                         monsterOptions = false;
@@ -174,7 +227,7 @@ public class MonsterManual {
                                     
                                          SELECT
                                          
-                                    >update profile
+                                    >update monster
                                     >delete monster
                                     >back
                                     
@@ -190,9 +243,10 @@ public class MonsterManual {
                             if (userInput.equals("back")) {
                                 monsterProfile = false;
                                 monsterOptions = true;
-                            } else if (userInput.equals("update profile")) {
+                            } else if (userInput.equals("update monster")) {
                                 System.out.println("Confirm monster's name:");
                                 monsterName = in.nextLine();
+                                System.out.println(monsterService.getMonsterByName(monsterName));
                                 System.out.println("Field to edit, select one: type, size, description, armor class");
                                 selectedField = in.nextLine();
                                 System.out.println("Enter new " + selectedField + ":");
@@ -216,56 +270,3 @@ public class MonsterManual {
     }
 }
 
-
-/*System.out.println("Insert monster's name:");
-        String monsterName = in.nextLine();
-        System.out.println("Insert monster's type (ex: humanoid, aberration):");
-        String monsterType = in.nextLine();
-        System.out.println("Insert monster's size:");
-        String monsterSize = in.nextLine();
-        System.out.println("Enter monster's short description:");
-        String monsterBio = in.nextLine();
-        System.out.println("Insert monster's armor class:");
-        Integer monsterAC = in.nextInt();
-        monsterService.addMonster(monsterName, monsterType, monsterSize,
-        monsterBio, monsterAC);
-
- */
-//  else if(userInput.equals("add entry")){
-//                newMonsterEntry.addEntry();
-
-
-/*  while(monsterProfile) {
-        System.out.println("SELECT\nupdate profile, delete monster, back");
-        userInput = in.nextLine();
-        String monsterName = "";
-        String selectedField = "";
-        String update = "";
-
-
-        if (userInput.equals("back")) {
-            playerOptions = false;
-            playerProfile = false;
-            monsterProfile = false;
-            monsterOptions = true;
-            manualOpen = false;
-        }
-
-        else if(userInput.equals("update profile")){
-            System.out.println("Confirm monster's name:");
-            monsterName = in.nextLine();
-            System.out.println("Field to edit, select one: type, size, description, armor class");
-            selectedField = in.nextLine();
-            System.out.println("Enter new "+ selectedField + ":");
-            update = in.nextLine();
-            monsterService.updateMonsterByName(monsterName,selectedField, update);
-            System.out.println(monsterService.getMonsterByName(monsterName));
-
-
-        }else if (userInput.equals("delete monster")) {
-            System.out.println("Monster to delete:");
-            userInput = in.nextLine();
-            monsterService.deleteMonsterByName(userInput);
-        }
-
- */

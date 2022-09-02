@@ -45,9 +45,11 @@ public class NewPlayerEntry {
         System.out.println("Password:");
 
         String playerPassword = sc.nextLine();
+        ClearSpace.clearSpace();
 
 
         playerService.addPlayer(playerName, playerClass, playerArmorClass, playerPassword);
+        System.out.println("Player successfully added.");
 
     }
 

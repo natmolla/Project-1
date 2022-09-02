@@ -1,6 +1,7 @@
 package Service;
 
 import DAO.PlayerRepository;
+import Model.LPlacement;
 import Model.Player;
 
 import java.util.List;
@@ -19,16 +20,17 @@ public class PlayerService {
             Player newPlayer = new Player(name, playerClass, armorClass, password);
             pr.addPlayer(newPlayer);
         } else {
-                System.out.println("This player already exists");
+                System.out.println("This player already exists.");
         }
     }
 
     public void deletePlayerByName(String name){
         pr.getPlayerByName(name);
         if (getPlayerByName(name) == null){
-            System.out.println("Player not found");
+            System.out.println("Player not found.");
             }else{
             pr.deletePlayerByName(name);
+            System.out.println("Player deleted.");
             }
 
         }
@@ -44,12 +46,22 @@ public class PlayerService {
     }
 
 
+    public List<LPlacement> getLeaderboard(){
+        return pr.getLeaderboard();
+    }
+
+    public void addKill(String player, String monster){
+        pr.addKill(player, monster);
+        System.out.println("Kill recorded.");
+    }
+
 
     public List<Player> getAllPlayers(){
+
             return pr.getAllPlayers();
         }
 
-    public Player getPlayerByName(String name){
+    public Player getPlayerByName(String name) {
         return pr.getPlayerByName(name);
     }
 

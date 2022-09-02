@@ -1,5 +1,6 @@
 package DAO;
 
+import Model.LPlacement;
 import Model.Player;
 import Util.ConnectionUtil;
 
@@ -29,6 +30,35 @@ public class PlayerRepository {
             e.printStackTrace();
         }
         return allPlayers;
+    }
+
+    public List<LPlacement> getLeaderboard(){
+        List<LPlacement> lPlacement = new ArrayList<>();
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select * from [Leaderboard]");
+            while (rs.next()){
+                LPlacement loadedPlayer = new LPlacement(rs.getString("player"), rs.getInt("count"));
+                lPlacement.add(loadedPlayer);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return lPlacement;
+    }
+
+    public void addKill(String player, String monster){
+        try{
+            PreparedStatement statement = conn.prepareStatement("Insert into Kills(player, monster_killed)" + "values (?,?)");
+            statement.setString(1,player);
+            statement.setString(2,monster);
+            statement.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -67,6 +97,8 @@ public class PlayerRepository {
         }
         return null;
     }
+
+
 
     public Player updatePlayerByName(String name, String selectedField, String update){
         try{
