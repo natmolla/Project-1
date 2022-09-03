@@ -1,3 +1,4 @@
+import Model.ClearSpace;
 import Service.MonsterService;
 import Service.PlayerService;
 import org.apache.logging.log4j.LogManager;
@@ -21,6 +22,7 @@ public class MonsterManual {
         NewMonsterEntry newMonsterEntry = new NewMonsterEntry(monsterService);
         NewPlayerEntry newPlayerEntry = new NewPlayerEntry(playerService);
         ClearSpace clearSpace = new ClearSpace();
+        GameMenu gameMenu = new GameMenu();
 
         boolean manualOpen = true;
         boolean playerOptions = false;
@@ -32,15 +34,21 @@ public class MonsterManual {
 
             while (manualOpen) {
                 System.out.println("""
-                                      SELECT
-                                      
-                        >player options
-                        >monster options
-                        >view leaderboard
-                        >close
+                        ]--+++||MAIN MENU||+++--[
+                        |                       |
+                         
+                         
+                         
+                                 >log in
+                            >player options
+                            >monster options
+                            >view leaderboard
+                                 >close
                         
                         
                         
+                        |                       |
+                        ]--+++||MAIN MENU||+++--[
                         """);
                 String userInput = in.nextLine();
                 newMonsterEntry.userInput(userInput);
@@ -48,52 +56,58 @@ public class MonsterManual {
                 if (userInput.equals("close")) {
                     manualOpen = false;
                 } else if (userInput.equals("monster options")) {
-                    ClearSpace.clearSpace();
+                    ClearSpace.clearSpaceLots();
                     manualOpen = false;
                     monsterOptions = true;
                 }
                 else if (userInput.equals("player options")) {
-                    ClearSpace.clearSpace();
+                    ClearSpace.clearSpaceLots();
                     manualOpen = false;
                     playerOptions = true;
                 }
                 else if (userInput.equals("view leaderboard")){
                     manualOpen = false;
                     leaderboardMenu = true;
+                }else if (userInput.equals("log in")){
+                    manualOpen = gameMenu.checkLogin();
                 }
 
                 while (leaderboardMenu) {
                     System.out.println("""  
-                                        SELECT
+                            ]----+++||OPTIONS||+++----[
+                            |                         |
+  
                                         
-                            >leaderboard
-                            >record kill
-                            >back
-                                                        
-                                                        
-                                                        
+                                   >leaderboard
+                                   >record kill
+                                      >back
+                              
+
+                            |                         |
+                            ]----+++||OPTIONS||+++----[
                             """);
                     userInput = in.nextLine();
                     if (userInput.equals("back")) {
+                        ClearSpace.clearSpaceLots();
                         leaderboardMenu = false;
                         manualOpen = true;
                     }
                     else if(userInput.equals("leaderboard")){
-                        ClearSpace.clearSpace();
+                        ClearSpace.clearSpaceLots();
                         System.out.println("""
-                                
-                                
-                                ]--||LEADERBOARD||--[
-                                
-                                
+                                ]--+++||LEADERBOARD||+++--[
+                                """);
+                        System.out.println("""  
+                                |||||||||||||||||||||||||||
+                                |||||||||||||||||||||||||||
                                 """);
                         System.out.println(playerService.getLeaderboard());
+                        System.out.println("""  
+                                |||||||||||||||||||||||||||
+                                |||||||||||||||||||||||||||
+                                """);
                         System.out.println("""
-                                
-                                
-                                ]--||LEADERBOARD||--[
-                                
-                                
+                                ]--+++||LEADERBOARD||+++--[
                                 """);
                     }
                     else if(userInput.equals("record kill")){
@@ -104,6 +118,21 @@ public class MonsterManual {
                         System.out.println("Enter name of monster killed:");
                         monster = in.nextLine();
                         playerService.addKill(player, monster);
+                        System.out.println("""
+                                ]--+++||LEADERBOARD||+++--[
+                                """);
+                        System.out.println("""  
+                                |||||||||||||||||||||||||||
+                                |||||||||||||||||||||||||||
+                                """);
+                        System.out.println(playerService.getLeaderboard());
+                        System.out.println("""  
+                                |||||||||||||||||||||||||||
+                                |||||||||||||||||||||||||||
+                                """);
+                        System.out.println("""
+                                ]--+++||LEADERBOARD||+++--[
+                                """);
                     }
 
 
@@ -111,21 +140,27 @@ public class MonsterManual {
                 }
                 while (playerOptions) {
                     System.out.println("""  
-                                        SELECT
-                                        
-                            >new player
-                            >view players
-                            >select player
-                            >back
+                            ]--+++||PLAYER OPTIONS||+++--[
+                            |                            |
                             
                             
                             
+                                     >new player
+                                    >view players
+                                    >select player
+                                        >back
+                            
+                            
+                            
+                            |                            |
+                            ]--+++||PLAYER OPTIONS||+++--[
                             """);
                     userInput = in.nextLine();
                     newMonsterEntry.userInput(userInput);
                     newPlayerEntry.userInput(userInput);
 
                     if (userInput.equals("back")) {
+                        ClearSpace.clearSpaceLots();
                         playerOptions = false;
                         manualOpen = true;
 
@@ -133,26 +168,50 @@ public class MonsterManual {
                         newPlayerEntry.addEntry();
                     } else if (userInput.equals("view players")) {
                         ClearSpace.clearSpace();
+                        System.out.println("""   
+                                ]]-----------ALL-PLAYERS------------[[
+                                
+                                """);
                         System.out.println(playerService.getAllPlayerNames());
+                        System.out.println("""  
+                                 
+                                 
+                                ]]------------ALL-PLAYERS-----------[[
+                                """);
+                        ClearSpace.clearSpace();
                     } else if (userInput.equals("select player")) {
                         System.out.println("user:");
                         userInput = in.nextLine();
-                        ClearSpace.clearSpace();
+                        ClearSpace.clearSpaceLots();
+                        System.out.println("""   
+                                ]]-----------PLAYER------------[[
+                                
+                                """);
                         System.out.println(playerService.getPlayerByName(userInput));
+                        System.out.println("""   
+                                
+                                
+                                ]]-----------PLAYER------------[[
+                                """);
                         manualOpen = false;
                         playerOptions = false;
                         playerProfile = true;
 
                         while (playerProfile) {
                             System.out.println("""
-                                            SELECT
+                                    ]--+++||PLAYER PROFILE||+++--[
+                                    |                            |
+
+
+
+                                           >update profile
+                                           >delete player
+                                               >back
                                     
-                                    >update profile
-                                    >delete player
-                                    >back
                                     
                                     
-                                    
+                                    |                            |
+                                    ]--+++||PLAYER PROFILE||+++--[
                                     """);
                             userInput = in.nextLine();
                             String playerName = "";
@@ -160,25 +219,43 @@ public class MonsterManual {
                             String update = "";
 
                             if (userInput.equals("back")) {
+                                ClearSpace.clearSpaceLots();
                                 playerOptions = true;
                                 playerProfile = false;
                             } else if (userInput.equals("update profile")) {
                                 System.out.println("Confirm user's name:");
                                 playerName = in.nextLine();
+                                System.out.println("""   
+                                ]]-----------PLAYER------------[[
+                                
+                                """);
                                 System.out.println(playerService.getPlayerByName(playerName));
+                                System.out.println("""   
+                                
+                                
+                                ]]-----------PLAYER------------[[
+                                """);
                                 System.out.println("Field to edit, select one: class, armor class, password");
                                 selectedField = in.nextLine();
                                 System.out.println("Enter new " + selectedField + ":");
                                 update = in.nextLine();
                                 playerService.updatePlayerByName(playerName, selectedField, update);
-                                ClearSpace.clearSpace();
+                                ClearSpace.clearSpaceLots();
+                                System.out.println("""   
+                                ]]-----------PLAYER------------[[
+                                
+                                """);;
                                 System.out.println(playerService.getPlayerByName(playerName));
-
+                                System.out.println("""   
+                                
+                                
+                                ]]-----------PLAYER------------[[
+                                """);
 
                             } else if (userInput.equals("delete player")) {
                                 System.out.println("Player to delete:");
                                 userInput = in.nextLine();
-                                ClearSpace.clearSpace();
+                                ClearSpace.clearSpaceLots();
                                 playerService.deletePlayerByName(userInput);
                             }
 
@@ -190,21 +267,27 @@ public class MonsterManual {
 
                 while (monsterOptions) {
                     System.out.println("""
-                                   SELECT
-                                   
-                            >new monster
-                            >view monsters
-                            >select monster
-                            >back
+                            ]--+++||MONSTER OPTIONS||+++--[
+                            |                             |
                             
                             
                             
+                                     >new monster
+                                    >view monsters
+                                    >select monster
+                                        >back
+                               
+                               
+                                 
+                            |                             |
+                            ]--+++||MONSTER OPTIONS||+++--[
                             """);
                     userInput = in.nextLine();
                     newMonsterEntry.userInput(userInput);
                     newPlayerEntry.userInput(userInput);
 
                     if (userInput.equals("back")) {
+                        ClearSpace.clearSpaceLots();
                         monsterOptions = false;
                         manualOpen = true;
 
@@ -212,27 +295,49 @@ public class MonsterManual {
                         newMonsterEntry.addEntry();
                     } else if (userInput.equals("view monsters")) {
                         ClearSpace.clearSpace();
+                        System.out.println("""   
+                                ]]-----------ALL-MONSTERS------------[[
+                                
+                                """);
                         System.out.println(monsterService.getAllMonsterNames());
+                        System.out.println("""  
+                                 
+                                 
+                                ]]------------ALL-MONSTERS-----------[[
+                                """);
+                        ClearSpace.clearSpace();
                     } else if (userInput.equals("select monster")) {
                         System.out.println("monster:");
                         userInput = in.nextLine();
-                        ClearSpace.clearSpace();
+                        ClearSpace.clearSpaceLots();
+                        System.out.println("""   
+                                ]]-----------MONSTER------------[[
+                                
+                                """);;
                         System.out.println(monsterService.getMonsterByName(userInput));
+                        System.out.println("""   
+                                
+                                
+                                ]]-----------MONSTER------------[[
+                                """);
                         monsterProfile = true;
                         monsterOptions = false;
 
                         while (monsterProfile) {
                             System.out.println("""
-                                    
-                                    
-                                         SELECT
-                                         
+                            ]--+++||MONSTER PROFILE||+++--[
+                            |                             |
+                            
+                            
+                                          
                                     >update monster
                                     >delete monster
-                                    >back
+                                        >back
+                            
+                            
                                     
-                                    
-                                    
+                            |                             |
+                            ]--+++||MONSTER PROFILE||+++--[
                                     """);
                             userInput = in.nextLine();
                             String monsterName = "";
@@ -241,19 +346,40 @@ public class MonsterManual {
 
 
                             if (userInput.equals("back")) {
+                                ClearSpace.clearSpaceLots();
                                 monsterProfile = false;
                                 monsterOptions = true;
                             } else if (userInput.equals("update monster")) {
                                 System.out.println("Confirm monster's name:");
                                 monsterName = in.nextLine();
+                                ClearSpace.clearSpace();
+                                System.out.println("""   
+                                ]]-----------MONSTER------------[[
+                                
+                                """);;
                                 System.out.println(monsterService.getMonsterByName(monsterName));
+                                System.out.println("""   
+                                
+                                
+                                ]]-----------MONSTER------------[[
+                                """);
+                                ClearSpace.clearSpace();
                                 System.out.println("Field to edit, select one: type, size, description, armor class");
                                 selectedField = in.nextLine();
                                 System.out.println("Enter new " + selectedField + ":");
                                 update = in.nextLine();
                                 monsterService.updateMonsterByName(monsterName, selectedField, update);
+                                ClearSpace.clearSpace();
+                                System.out.println("""   
+                                ]]-----------MONSTER------------[[
+                                
+                                """);;
                                 System.out.println(monsterService.getMonsterByName(monsterName));
-
+                                System.out.println("""   
+                                
+                                
+                                ]]-----------MONSTER------------[[
+                                """);
 
                             } else if (userInput.equals("delete monster")) {
                                 System.out.println("Monster to delete:");

@@ -1,3 +1,4 @@
+import Model.ClearSpace;
 import Service.PlayerService;
 
 import java.util.Scanner;
@@ -49,7 +50,14 @@ public class NewPlayerEntry {
 
 
         playerService.addPlayer(playerName, playerClass, playerArmorClass, playerPassword);
-        System.out.println("Player successfully added.");
+        System.out.println("""
+                ]|---------------------------------|[
+                
+                     Player successfully added.
+                    
+                ]|---------------------------------|[
+                """);
+        ClearSpace.clearSpace();
 
     }
 

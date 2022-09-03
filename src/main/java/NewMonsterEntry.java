@@ -1,3 +1,4 @@
+import Model.ClearSpace;
 import Service.MonsterService;
 
 import java.util.Scanner;
@@ -62,7 +63,14 @@ public class NewMonsterEntry {
         monsterService.addMonster(monsterName, monsterType, monsterSize,
                 monsterBio, monsterAC);
 
-        System.out.println("Monster successfully added.");
+        System.out.println("""
+                ]|---------------------------------|[
+                
+                     Monster successfully added.
+                    
+                ]|---------------------------------|[
+                """);
+        ClearSpace.clearSpace();
     }
 
 

@@ -48,6 +48,48 @@ public class PlayerRepository {
         return lPlacement;
     }
 
+    /* public List<LoginModel> getAllPlayerLogins(){
+
+        List<LoginModel> loginInformation = new ArrayList<>();
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("Select p_name, p_password from players");
+            while (rs.next()){
+                LoginModel loadedInformation = new LoginModel(rs.getString("p_name"),rs.getString("p_password"));
+                loginInformation.add(loadedInformation);
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return loginInformation;
+
+    }
+
+     */
+
+
+    public boolean checkLogin(String username, String password){
+        boolean loggedIn = false;
+        try {
+            PreparedStatement statement = conn.prepareStatement("Select p_name, p_password from players where p_name = ? and p_password = ?");
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                loggedIn = true;
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return loggedIn;
+
+
+
+    }
+
+
     public void addKill(String player, String monster){
         try{
             PreparedStatement statement = conn.prepareStatement("Insert into Kills(player, monster_killed)" + "values (?,?)");
