@@ -15,6 +15,7 @@ public class GameMenu {
 
         System.out.println("Enter your username:");
         username = in.nextLine();
+        MonsterManual.logger.info("User tried to login as:" +username);
         System.out.println("Enter your password:");
         password = in.nextLine();
 
@@ -51,6 +52,7 @@ public class GameMenu {
 
             }
 
+            
 
         }
 

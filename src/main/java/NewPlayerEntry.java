@@ -27,6 +27,7 @@ public class NewPlayerEntry {
             sc.nextLine();
         }
         String playerName = sc.nextLine();
+        MonsterManual.logger.info("New added player: "+playerName);
 
         System.out.println("Player's class:");
         while(sc.hasNextInt() ) {

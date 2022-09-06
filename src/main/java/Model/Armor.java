@@ -1,2 +1,4 @@
-package Model;public class Armor {
+package Model;
+
+public class Armor {
 }

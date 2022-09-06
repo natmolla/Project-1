@@ -1,2 +1,8 @@
-package Model;public class Weapon {
+package Model;
+
+public class Weapon {
+
+
+
+
 }

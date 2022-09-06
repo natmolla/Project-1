@@ -7,6 +7,44 @@ public class Player {
     int armorClass;
     String password;
 
+    int coin;
+
+    private int damage;
+    private int health;
+    private boolean dead = false;
+
+    public int getCoin() {
+        return coin;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
+    }
+
+    public void setDead(boolean dead){
+        this.dead = dead;
+    }
+
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
 
     public Player(String name, String playerClass, int armorClass, String password) {
         this.name = name;

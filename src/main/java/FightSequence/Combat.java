@@ -1,2 +1,9 @@
-package FightSequence;public class Combat {
+package FightSequence;
+
+public class Combat {
+
+
+
+
+
 }
