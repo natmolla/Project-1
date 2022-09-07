@@ -1,5 +1,15 @@
-[INFO ] 2022-09-05 13:00:57.819 [main] MonsterManual - Logger initialized.
-[INFO ] 2022-09-05 13:05:03.661 [main] MonsterManual - Logger initialized.
-[INFO ] 2022-09-05 13:18:59.623 [main] MonsterManual - Logger initialized.
-[INFO ] 2022-09-05 13:19:05.944 [main] MonsterManual - Abeth
-[INFO ] 2022-09-05 13:19:23.125 [main] MonsterManual - testing
+[INFO ] 2022-09-06 06:59:48.098 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 06:59:58.238 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 08:45:53.454 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 08:45:58.694 [main] MonsterManual - User tried to login as:Abath
+[INFO ] 2022-09-06 08:46:11.177 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 08:59:56.597 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 09:00:09.041 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 09:01:51.889 [main] MonsterManual - New added player: Test
+[INFO ] 2022-09-06 09:03:38.811 [main] MonsterManual - New added monster: Test
+[INFO ] 2022-09-06 09:06:12.105 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 12:53:35.157 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 12:53:46.290 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 12:54:13.477 [main] MonsterManual - User tried to login as:djfhg
+[INFO ] 2022-09-06 12:55:37.021 [main] MonsterManual - New added player: Test
+[INFO ] 2022-09-06 12:57:25.720 [main] MonsterManual - New added monster: Test
