@@ -7,6 +7,10 @@ public class Player {
     int armorClass;
     String password;
 
+    public Player(){
+
+    }
+
     int coin;
 
     private int damage;

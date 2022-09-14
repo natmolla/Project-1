@@ -167,6 +167,20 @@ public class PlayerRepository {
 
     }
 
+    public Player updateEntirePlayerByName(String name, Player p) {
+        try {
+            PreparedStatement statement = conn.prepareStatement("update players set p_class = ?, p_ac = ? where p_name = ?");
+            statement.setString(1, p.getPlayerClass());
+            statement.setInt(2, p.getArmorClass());
+            statement.setString(3,name);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
+
     public void addPlayer(Player p){
         try{
             PreparedStatement statement = conn.prepareStatement("insert into Players(p_name, p_class, p_ac, p_password)" + "values(?,?,?,?)");

@@ -4,10 +4,13 @@ import DAO.PlayerRepository;
 import Model.ClearSpace;
 import Model.LPlacement;
 import Model.Player;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class PlayerService {
+    public static Logger logger = LogManager.getLogger(PlayerService.class);
 
     PlayerRepository pr;
 
@@ -20,6 +23,7 @@ public class PlayerService {
         if (existingPlayer == null) {
             Player newPlayer = new Player(name, playerClass, armorClass, password);
             pr.addPlayer(newPlayer);
+            PlayerService.logger.info("New player added: "+ name);
         } else {
             ClearSpace.clearSpace();
             System.out.println("""
@@ -54,6 +58,7 @@ public class PlayerService {
             }else{
             pr.deletePlayerByName(name);
             ClearSpace.clearSpace();
+            PlayerService.logger.info("Player deleted: "+ name);
             System.out.println("""
                 ]|-----------------------------------|[
                 
@@ -65,6 +70,11 @@ public class PlayerService {
             }
 
         }
+
+    public Player updateEntirePlayerByName(String name, Player updatedPlayer){
+
+        return pr.updateEntirePlayerByName(name, updatedPlayer);
+    }
 
     public Player updatePlayerByName(String name, String selectedField, String update ){
         pr.getPlayerByName(name);
@@ -80,6 +90,7 @@ public class PlayerService {
             ClearSpace.clearSpace();
         }else{
             pr.updatePlayerByName(name, selectedField, update);
+            PlayerService.logger.info("Player: "+ name + " was updated.");
         }
         return pr.getPlayerByName(name);
     }
@@ -108,6 +119,7 @@ public class PlayerService {
         }
 
     public Player getPlayerByName(String name) {
+        PlayerService.logger.info("Player: "+ name + " was selected.");
             return pr.getPlayerByName(name);
 
     }
