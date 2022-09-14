@@ -1,0 +1,11 @@
+[INFO ] 2022-09-13 09:05:40.961 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-13 09:37:30.205 [JettyServerThreadPool-19] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:37:30.834 [JettyServerThreadPool-20] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:38:07.164 [JettyServerThreadPool-31] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:38:08.432 [JettyServerThreadPool-18] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:39:10.994 [JettyServerThreadPool-22] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:39:19.424 [JettyServerThreadPool-21] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:39:27.583 [JettyServerThreadPool-18] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:39:46.507 [JettyServerThreadPool-21] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:44:13.144 [JettyServerThreadPool-21] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-13 09:44:18.107 [JettyServerThreadPool-23] PlayerService - Player: Abeth was selected.
