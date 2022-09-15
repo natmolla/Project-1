@@ -1,0 +1,22 @@
+[INFO ] 2022-09-14 09:41:18.508 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-14 12:52:31.356 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-14 13:50:01.650 [JettyServerThreadPool-20] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 13:50:08.424 [JettyServerThreadPool-23] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 13:51:54.348 [JettyServerThreadPool-24] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 13:53:33.932 [JettyServerThreadPool-24] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 13:54:50.318 [JettyServerThreadPool-19] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 14:17:07.969 [JettyServerThreadPool-18] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 15:11:15.418 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-14 21:21:38.855 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-14 22:31:14.155 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-14 23:04:13.220 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-14 23:14:49.125 [JettyServerThreadPool-23] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 23:14:59.989 [JettyServerThreadPool-21] PlayerService - Player: test was selected.
+[INFO ] 2022-09-14 23:15:00.825 [JettyServerThreadPool-23] PlayerService - Player: test was selected.
+[INFO ] 2022-09-14 23:16:34.472 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-14 23:16:36.891 [JettyServerThreadPool-25] PlayerService - Player: test was selected.
+[INFO ] 2022-09-14 23:17:43.412 [JettyServerThreadPool-24] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-14 23:19:07.367 [JettyServerThreadPool-25] PlayerService - New player added: test
+[INFO ] 2022-09-14 23:19:11.770 [JettyServerThreadPool-25] PlayerService - Player: test was selected.
+[INFO ] 2022-09-14 23:19:17.806 [JettyServerThreadPool-25] PlayerService - Player: test was selected.
+[INFO ] 2022-09-14 23:19:17.996 [JettyServerThreadPool-25] PlayerService - Player deleted: test

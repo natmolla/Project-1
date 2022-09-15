@@ -1,6 +1,7 @@
 package DAO;
 
 import Model.LPlacement;
+import Model.LoginModel;
 import Model.Player;
 import Util.ConnectionUtil;
 
@@ -48,7 +49,7 @@ public class PlayerRepository {
         return lPlacement;
     }
 
-    /* public List<LoginModel> getAllPlayerLogins(){
+     public List<LoginModel> getAllPlayerLogins(){
 
         List<LoginModel> loginInformation = new ArrayList<>();
         try{
@@ -66,7 +67,7 @@ public class PlayerRepository {
 
     }
 
-     */
+
 
 
     public boolean checkLogin(String username, String password){

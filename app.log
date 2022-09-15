@@ -1,1 +1,4 @@
-[INFO ] 2022-09-14 09:41:18.508 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-15 07:06:24.369 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-15 09:29:03.582 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-15 10:40:37.705 [JettyServerThreadPool-20] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-15 14:17:49.695 [main] MonsterManualAPI - Logger initialized

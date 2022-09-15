@@ -26,7 +26,13 @@ public class MonsterManualAPI {
         Javalin app = Javalin.create(JavalinConfig::enableCorsForAllOrigins
         ).start(9000);
 
-        MonsterManualAPI.logger.info("Logger testing");
+        MonsterManualAPI.logger.info("Logger initialized");
+        
+        //TRY LOGGING IN
+        
+        app.get("/monstermanual/player/{name}/{password}", ctx -> {
+           ctx.json(pr.checkLogin(ctx.pathParam("name"),ctx.pathParam("password")));
+        });
 
         //FETCHING ALL MONSTERS/PLAYERS
 
