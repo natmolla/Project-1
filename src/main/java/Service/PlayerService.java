@@ -129,7 +129,9 @@ public class PlayerService {
         return pr.getAllPlayerNames(pr.getAllPlayers());
     }
 
-
+    public Integer getKills(String name) {
+        return pr.getKills(name);
+    }
 
 }
 

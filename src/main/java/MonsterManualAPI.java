@@ -109,7 +109,10 @@ public class MonsterManualAPI {
             pr.addKill(ctx.pathParam("name"),ctx.pathParam("kill"));
         });
 
-
+        // GET A PLAYER's KILLS
+        app.get("monstermanual/leaderboard/{name}", ctx -> {
+            ctx.json(ps.getKills(ctx.pathParam("name")));
+        });
     }
 
 }

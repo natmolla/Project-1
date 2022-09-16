@@ -93,15 +93,29 @@ public class PlayerRepository {
 
     public void addKill(String player, String monster){
         try{
-            PreparedStatement statement = conn.prepareStatement("Insert into Kills(player, monster_killed)" + "values (?,?)");
+            PreparedStatement statement = conn.prepareStatement("INSERT into Kills(player, monster_killed)" + "values (?,?)");
             statement.setString(1,player);
             statement.setString(2,monster);
             statement.executeUpdate();
-        }catch(SQLException e){
+        }catch(SQLException e) {
             e.printStackTrace();
         }
+    }
 
-
+    public Integer getKills(String name) {
+        Integer kills = 0;
+        try {
+            PreparedStatement statement = conn.prepareStatement("SELECT count from [Leaderboard] where player = ?");
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()) {
+                kills = rs.getInt("count");
+                return kills;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
