@@ -5,7 +5,7 @@ plugins {
 }
 // Shadow task depends on Jar task, so these configs are reflected for Shadow as well
 tasks.jar {
-    manifest.attributes["Main-Class"] = "MonsterManual"
+    manifest.attributes["Main-Class"] = "MonsterManualAPI"
 
 }
 
@@ -42,7 +42,7 @@ apply plugin: 'java'
 
 jar {
     manifest {
-        attributes "Main-Class": "MonsterManual"
+        attributes "Main-Class": "MonsterManualAPI"
     }
 
     from {

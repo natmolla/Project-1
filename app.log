@@ -1,4 +1,28 @@
+<<<<<<< HEAD
 [INFO ] 2022-09-15 07:06:24.369 [main] MonsterManualAPI - Logger testing
 [INFO ] 2022-09-15 09:29:03.582 [main] MonsterManualAPI - Logger initialized
 [INFO ] 2022-09-15 10:40:37.705 [JettyServerThreadPool-20] PlayerService - Player: Abeth was selected.
 [INFO ] 2022-09-15 14:17:49.695 [main] MonsterManualAPI - Logger initialized
+=======
+[INFO ] 2022-09-06 06:59:48.098 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 06:59:58.238 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 08:45:53.454 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 08:45:58.694 [main] MonsterManual - User tried to login as:Abath
+[INFO ] 2022-09-06 08:46:11.177 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 08:59:56.597 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 09:00:09.041 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 09:01:51.889 [main] MonsterManual - New added player: Test
+[INFO ] 2022-09-06 09:03:38.811 [main] MonsterManual - New added monster: Test
+[INFO ] 2022-09-06 09:06:12.105 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 12:53:35.157 [main] MonsterManual - Logger initialized.
+[INFO ] 2022-09-06 12:53:46.290 [main] MonsterManual - User tried to login as:Abeth
+[INFO ] 2022-09-06 12:54:13.477 [main] MonsterManual - User tried to login as:djfhg
+[INFO ] 2022-09-06 12:55:37.021 [main] MonsterManual - New added player: Test
+[INFO ] 2022-09-06 12:57:25.720 [main] MonsterManual - New added monster: Test
+>>>>>>> main
+[INFO ] 2022-09-15 16:44:00.644 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-15 16:59:31.596 [JettyServerThreadPool-21] PlayerService - Player: Abeth was selected.
+[INFO ] 2022-09-15 16:59:56.954 [JettyServerThreadPool-20] PlayerService - New player added: test
+[INFO ] 2022-09-15 17:00:02.487 [JettyServerThreadPool-20] PlayerService - Player: test was selected.
+[INFO ] 2022-09-15 17:00:07.486 [JettyServerThreadPool-20] PlayerService - Player: test was selected.
+[INFO ] 2022-09-15 17:00:07.679 [JettyServerThreadPool-20] PlayerService - Player deleted: test
