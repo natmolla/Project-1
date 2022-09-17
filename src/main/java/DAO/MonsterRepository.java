@@ -69,6 +69,23 @@ public class MonsterRepository {
 
     }
 
+    public Monster updateEntireMonsterByName(String name, Monster m){
+        try{
+            PreparedStatement statement = conn.prepareStatement("update monsters set m_type = ?, m_size = ?, m_description = ?, m_ac = ? where m_name = ?");
+            statement.setString(1, m.getType());
+            statement.setString(2, m.getSize());
+            statement.setString(3,m.getDescription());
+            statement.setInt(4, m.getArmorClass());
+            statement.setString(5, name);
+            statement.executeUpdate();
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return m;
+    }
+
+
     public Player updateMonsterByName(String name, String selectedField, String update) {
         try {
 

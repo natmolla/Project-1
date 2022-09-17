@@ -1,6 +1,7 @@
 package DAO;
 
 import Model.LPlacement;
+import Model.LoginModel;
 import Model.Player;
 import Util.ConnectionUtil;
 
@@ -48,7 +49,7 @@ public class PlayerRepository {
         return lPlacement;
     }
 
-    /* public List<LoginModel> getAllPlayerLogins(){
+     public List<LoginModel> getAllPlayerLogins(){
 
         List<LoginModel> loginInformation = new ArrayList<>();
         try{
@@ -66,7 +67,7 @@ public class PlayerRepository {
 
     }
 
-     */
+
 
 
     public boolean checkLogin(String username, String password){
@@ -92,15 +93,29 @@ public class PlayerRepository {
 
     public void addKill(String player, String monster){
         try{
-            PreparedStatement statement = conn.prepareStatement("Insert into Kills(player, monster_killed)" + "values (?,?)");
+            PreparedStatement statement = conn.prepareStatement("INSERT into Kills(player, monster_killed)" + "values (?,?)");
             statement.setString(1,player);
             statement.setString(2,monster);
             statement.executeUpdate();
-        }catch(SQLException e){
+        }catch(SQLException e) {
             e.printStackTrace();
         }
+    }
 
-
+    public Integer getKills(String name) {
+        Integer kills = 0;
+        try {
+            PreparedStatement statement = conn.prepareStatement("SELECT count from [Leaderboard] where player = ?");
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()) {
+                kills = rs.getInt("count");
+                return kills;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
@@ -165,6 +180,20 @@ public class PlayerRepository {
         }
         return null;
 
+    }
+
+    public Player updateEntirePlayerByName(String name, Player p) {
+        try {
+            PreparedStatement statement = conn.prepareStatement("update players set p_class = ?, p_ac = ? where p_name = ?");
+            statement.setString(1, p.getPlayerClass());
+            statement.setInt(2, p.getArmorClass());
+            statement.setString(3,name);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return p;
     }
 
     public void addPlayer(Player p){

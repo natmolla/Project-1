@@ -1,0 +1,4 @@
+[INFO ] 2022-09-12 15:10:55.407 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-12 15:13:00.690 [main] MonsterManualAPI - Logger testing
+[INFO ] 2022-09-12 15:13:27.866 [JettyServerThreadPool-18] PlayerService - New added player: test
+[INFO ] 2022-09-12 15:24:34.534 [JettyServerThreadPool-24] PlayerService - New added player: test

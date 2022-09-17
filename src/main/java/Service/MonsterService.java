@@ -62,6 +62,11 @@ public class MonsterService {
         return mr.getAllMonsters();
     }
 
+    public Monster updateEntireMonsterByName(String name, Monster updatedMonster){
+        return mr.updateEntireMonsterByName(name, updatedMonster);
+
+    }
+
     public Monster updateMonsterByName(String name, String selectedField, String update ){
         mr.getMonsterByName(name);
         if (getMonsterByName(name) == null){

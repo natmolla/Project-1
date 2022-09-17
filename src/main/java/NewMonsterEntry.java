@@ -25,7 +25,7 @@ public class NewMonsterEntry {
             sc.nextLine();
         }
         String monsterName = sc.nextLine();
-            MonsterManual.logger.info("New added monster: "+ monsterName);
+            MonsterManualAPI.logger.info("New added monster: "+ monsterName);
 
 
         System.out.println("Monster's type (ex: humanoid, aberration):");

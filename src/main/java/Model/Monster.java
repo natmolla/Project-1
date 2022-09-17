@@ -7,6 +7,9 @@ public class Monster {
     String size;
     String description;
     int armorClass;
+    public Monster(){
+
+    }
 
 
     public Monster(String name, String type, String size, String description,
