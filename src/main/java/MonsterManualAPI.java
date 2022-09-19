@@ -32,6 +32,7 @@ public class MonsterManualAPI {
         
         app.get("/monstermanual/player/{name}/{password}", ctx -> {
            ctx.json(pr.checkLogin(ctx.pathParam("name"),ctx.pathParam("password")));
+            MonsterManualAPI.logger.info("User tried to login as: " + ctx.pathParam("name"));
         });
 
         //FETCHING ALL MONSTERS/PLAYERS
@@ -75,10 +76,12 @@ public class MonsterManualAPI {
 
         app.delete("/monstermanual/player/{name}", ctx -> {
             ps.deletePlayerByName(ctx.pathParam("name"));
+            MonsterManualAPI.logger.info("Player: " + ctx.pathParam("name")+ " was deleted.");
         });
 
         app.delete("/monstermanual/monster/{name}", ctx -> {
             ms.deleteMonsterByName(ctx.pathParam("name"));
+            MonsterManualAPI.logger.info("Monster: " + ctx.pathParam("name")+ " was deleted.");
         });
 
         //UPDATING A PLAYER/MONSTER
@@ -88,6 +91,7 @@ public class MonsterManualAPI {
             ObjectMapper mapper = new ObjectMapper();
             Player updatedPlayer = mapper.readValue(ctx.body(), Player.class);
             ps.updateEntirePlayerByName(ctx.pathParam("name"), updatedPlayer);
+            MonsterManualAPI.logger.info("Player: " + ctx.pathParam("name")+ " was updated.");
         });
 
         app.put("monstermanual/monster/{name}", ctx ->  {
@@ -95,6 +99,7 @@ public class MonsterManualAPI {
            ObjectMapper mapper = new ObjectMapper();
            Monster updatedMonster = mapper.readValue(ctx.body(), Monster.class);
            ms.updateEntireMonsterByName(ctx.pathParam("name"), updatedMonster);
+            MonsterManualAPI.logger.info("Monster: " + ctx.pathParam("name")+ " was updated.");
         });
 
         // OPEN THE LEADERBOARD
@@ -107,6 +112,7 @@ public class MonsterManualAPI {
 
         app.post("monstermanual/leaderboard/{name}/{kill}", ctx -> {
             pr.addKill(ctx.pathParam("name"),ctx.pathParam("kill"));
+            MonsterManualAPI.logger.info("Added kill to: " + ctx.pathParam("name")+".");
         });
 
         // GET A PLAYER's KILLS

@@ -3,10 +3,13 @@ package Service;
 import DAO.MonsterRepository;
 import Model.ClearSpace;
 import Model.Monster;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class MonsterService {
+    public static Logger logger = LogManager.getLogger(MonsterService.class);
 
     MonsterRepository mr;
     public MonsterService(){
@@ -86,6 +89,7 @@ public class MonsterService {
     }
 
     public Monster getMonsterByName(String name){
+        MonsterService.logger.info("Monster: "+ name + " was selected.");
         return mr.getMonsterByName(name);
     }
 

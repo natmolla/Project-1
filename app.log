@@ -1,8 +1,8 @@
-[INFO ] 2022-09-16 14:38:44.717 [main] MonsterManualAPI - Logger initialized
-[INFO ] 2022-09-16 14:40:41.094 [main] MonsterManualAPI - Logger initialized
-[INFO ] 2022-09-16 14:41:20.806 [main] MonsterManualAPI - Logger initialized
-[INFO ] 2022-09-16 14:42:10.251 [main] MonsterManualAPI - Logger initialized
-[INFO ] 2022-09-16 14:44:27.401 [main] MonsterManualAPI - Logger initialized
-[INFO ] 2022-09-16 14:51:52.908 [main] MonsterManualAPI - Logger initialized
-[INFO ] 2022-09-16 14:58:28.787 [main] MonsterManualAPI - Logger initialized
-[INFO ] 2022-09-16 15:02:12.584 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-19 07:15:47.820 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-19 07:19:42.442 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-19 07:52:47.850 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-19 07:56:09.063 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-19 07:56:15.838 [JettyServerThreadPool-24] MonsterManualAPI - User tried to login as:Abeth
+[INFO ] 2022-09-19 09:06:36.892 [main] MonsterManualAPI - Logger initialized
+[INFO ] 2022-09-19 09:07:53.895 [JettyServerThreadPool-30] MonsterManualAPI - User tried to login as: Abeth
+[INFO ] 2022-09-19 09:07:56.930 [JettyServerThreadPool-22] MonsterManualAPI - User tried to login as: Abeth
